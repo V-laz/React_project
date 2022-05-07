@@ -1,0 +1,11 @@
+.nav {
+  color:darkgrey;
+  background-color: aqua;
+
+}
+.item a.active {
+  color:coral;
+}
+.item  {
+  color:rgb(21, 115, 197);
+}

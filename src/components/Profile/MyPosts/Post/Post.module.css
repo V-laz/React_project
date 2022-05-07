@@ -1,0 +1,10 @@
+.item {
+  color:greenyellow;
+}
+.item img {
+  width:60px;
+  border-radius: 15px;
+  border-color: gold;
+  border:2px;
+  border:double;
+}
