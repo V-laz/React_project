@@ -7,7 +7,7 @@ return (
       <img src="https://avatars.mds.yandex.net/i?id=3dd2193f7afdc45fb3966061cff38112-4948500-images-thumbs&n=13" alt="ava" />
     {props.message}
       <div>
-        <span>Like {props.likesCant}</span>
+        <span>Like {props.likesCount}</span>
         
       </div>
     </div>
