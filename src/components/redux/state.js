@@ -53,7 +53,8 @@
 //   rerenderEntireTree = observer;
 // }
 // export default state;
-
+const ADD_POST='ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 let store = {
   _state: {
 
@@ -94,8 +95,11 @@ let store = {
 
     return this._state;
   },
+  subscribe(observer) {
+    this._callSubscriber = observer;
+  },
 
-  addPost() {
+  _addPost() {
 
     let newsPost = {
       id: 5,
@@ -106,13 +110,34 @@ let store = {
     this._state.profilePage.newPostText = '';
     this._callSubscriber(this._state);
   },
-  updateNewPostText(newText) {
+  _updateNewPostText(newText) {
     this._state.profilePage.newPostText = newText;
     this._callSubscriber(this._state);
   },
-  subscribe(observer) {
-    this._callSubscriber = observer;
-  },
-
+  dispatch(action) {
+    
+    if (action.type === 'ADD-POST') {
+      let newsPost = {
+        id: 5,
+        message: this._state.profilePage.newPostText,
+        likeCount: 9
+      };
+      this._state.profilePage.newPost.push(newsPost);
+      this._state.profilePage.newPostText = '';
+      this._callSubscriber(this._state);
+    } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+      this._state.profilePage.newPostText = action.newText;
+      this._callSubscriber(this._state);
+    }
+  }
 }
+// export const addPostActionCreator = () => {
+//   return {
+//     type: ADD_POST
+//   }
+// }
+export const addPostActionCreator = () => ({type: ADD_POST })
+
+export const updateNewPostTextActionCreator = (text) =>
+ ({type: UPDATE_NEW_POST_TEXT, newText: text})
 export default store;

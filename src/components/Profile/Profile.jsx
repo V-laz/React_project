@@ -7,15 +7,15 @@ const Profile = (props) => {
     <div className={s.content}>
 
       <div>
-        <img src="https://picfiles.alphacoders.com/310/310953.jpg" alt="image" />
+        <img src="https://picfiles.alphacoders.com/310/310953.jpg" alt="img" />
       </div>
       <div>
         ava+description
       </div>
       <MyPosts newPost={props.profilePage.newPost}
-        addPost={props.addPost}
+        dispatch={props.dispatch}
         newPostText={props.profilePage.newPostText}
-        updateNewPostText={props.updateNewPostText} />
+        />
 
     </div>
   )
