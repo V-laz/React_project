@@ -7,25 +7,7 @@ import { updateNewMessageBodyCreator, sendMessageCreator } from './../redux/mess
 
 
 const Dialogs = (props) => {
-  let state= props.store.getState().messagePage;
-
-
-  // let dialogsData = [
-  //   { id: 1, name: 'Gyver' },
-  //   { id: 2, name: "Vajs" },
-  //   { id: 3, name: "Natasha" },
-  //   { id: 4, name: "Lexa" },
-  //   { id: 5, name: "Zaicr" },
-  //   { id: 6, name: "Avtobus" }
-  // ];
-
-  // let messagesData = [
-  //   { id: 1, message: 'hi' },
-  //   { id: 2, message: "how are you" },
-  //   { id: 4, message: "ypo" },
-  //   { id: 5, message: "Zby" },
-  //   { id: 6, message: "bngj" }
-  // ];
+  let state = props.store.getState().messagePage;
 
   let DialogElement = state.dialogsData.map(d => <DialogItem name={d.name} id={d.id} />)
   let MessageElement = state.messagesData.map(m => <DialogMessage message={m.message} />)
@@ -40,11 +22,8 @@ const Dialogs = (props) => {
     props.store.dispatch(updateNewMessageBodyCreator(body))
 
   }
-
-
-
   return (
-           
+
     <div className={s.content}>
       <div className={s.peoples}>
         {DialogElement}
@@ -54,8 +33,8 @@ const Dialogs = (props) => {
         <div>{MessageElement}</div>
         <div>
           <div><textarea value={newMessageBody}
-          onChange={onNewMessageChange}
-           placeholder="Enter you message"></textarea></div>
+            onChange={onNewMessageChange}
+            placeholder="Enter you message"></textarea></div>
           <div><button onClick={onSendMessageClisk}>Send</button></div>
         </div>
 
