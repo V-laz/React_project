@@ -6,10 +6,10 @@ import reportWebVitals from './reportWebVitals';
 import store from './components/redux/redux-store';
 
 let rerenderEntireTree = (state) => {
- 
+
   ReactDOM.render(
     <React.StrictMode>
-      <App state={state} store={store} dispatch={store.dispatch.bind(store)}/>
+      <App state={state} store={store} dispatch={store.dispatch.bind(store)} />
     </React.StrictMode>,
     document.getElementById('root')
   );
@@ -18,7 +18,7 @@ let rerenderEntireTree = (state) => {
 
 
 rerenderEntireTree(store.getState());
-store.subscribe(()=> {
+store.subscribe(() => {
   let state = store.getState()
   rerenderEntireTree(state)
 });
